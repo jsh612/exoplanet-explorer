@@ -64,9 +64,12 @@ Hint: you'll probably still need to use .map.
 
       addSearchHeader(response.query);
 
-      response.results.map(function(url) {
-        getJSON(url).then(createPlanetThumb);
+      const promiseArr = response.results.map(function(url) {
+        return getJSON(url).then(createPlanetThumb)
       });
+      console.log(promiseArr);
+      Promise.all(promiseArr)
+      .then();
     });
   });
 })(document);
