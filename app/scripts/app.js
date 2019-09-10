@@ -78,3 +78,6 @@ Instructions:
     })
   });
 })(document);
+
+
+//gulp serve  로 결과 확인
