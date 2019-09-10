@@ -51,7 +51,6 @@ Instructions:
    */
   function getJSON(url) {
     return get(url).then(function(response) {
-      console.log("res url",response.url);
       return response.json();
     });
   }
