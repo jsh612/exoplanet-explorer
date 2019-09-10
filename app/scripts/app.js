@@ -65,11 +65,15 @@ Hint: you'll probably still need to use .map.
       addSearchHeader(response.query);
 
       const promiseArr = response.results.map(function(url) {
-        return getJSON(url).then(createPlanetThumb)
+        return getJSON(url)
       });
-      console.log(promiseArr);
       Promise.all(promiseArr)
-      .then();
+      .then(promiseArr => {
+        console.log("arr",promiseArr)
+        promiseArr.forEach((planet) => {
+          createPlanetThumb(planet);
+        })
+      });
     });
   });
 })(document);
